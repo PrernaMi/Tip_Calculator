@@ -171,7 +171,7 @@ class _TipHomePageState extends State<TipHomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text("Choose",style: TextStyle(fontWeight: FontWeight.bold),),
-                        Text("Your Tip"),
+                        Text("Your Tips"),
                       ],
                     ),
                     SizedBox(width: 30,),
