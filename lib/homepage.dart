@@ -144,6 +144,7 @@ class _TipHomePageState extends State<TipHomePage> {
                         Expanded(
                           child: TextField(
                             controller: enterYourBill,
+                            keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -188,10 +189,7 @@ class _TipHomePageState extends State<TipHomePage> {
                                       controller: tip10,
                                     );
                                     tip = 10;
-                                    int bill = int.parse(enterYourBill.text.toString());
-                                    tipcal = (bill *tip)/100;
-                                    total = bill+tipcal;
-                                    totalBperson = total;
+                                    calculation();
                                     setState(() {
 
                                     });
@@ -213,10 +211,7 @@ class _TipHomePageState extends State<TipHomePage> {
                                       controller: tip15,
                                     );
                                     tip = 15;
-                                    int bill = int.parse(enterYourBill.text.toString());
-                                    tipcal = (bill *tip)/100;
-                                    total = bill+tipcal;
-                                    totalBperson = total;
+                                    calculation();
                                     setState(() {
 
                                     });
@@ -238,10 +233,7 @@ class _TipHomePageState extends State<TipHomePage> {
                                       controller: tip20,
                                     );
                                     tip = 20;
-                                    int bill = int.parse(enterYourBill.text.toString());
-                                    tipcal = (bill *tip)/100;
-                                    total = bill+tipcal;
-                                    totalBperson = total;
+                                    calculation();
                                     setState(() {
 
                                     });
@@ -288,10 +280,7 @@ class _TipHomePageState extends State<TipHomePage> {
                                     ),
                                     onPressed: (){
                                       tip = int.parse(tipCustom.text.toString());
-                                      int bill = int.parse(enterYourBill.text.toString());
-                                      tipcal = (bill *tip)/100;
-                                      total = bill+tipcal;
-                                      totalBperson = total;
+                                      calculation();
                                       setState(() {
 
                                       });
@@ -333,7 +322,7 @@ class _TipHomePageState extends State<TipHomePage> {
                               height: 40,
                               width: 60,
                               child: ElevatedButton(onPressed: (){
-                                if(count > 0) {
+                                if(count > 1) {
                                   count--;
                                   totalBperson = total ~/ count;
                                 }
@@ -385,5 +374,13 @@ class _TipHomePageState extends State<TipHomePage> {
         ),
       ),
     );
+  }
+  void calculation(){
+    if(enterYourBill.text.isNotEmpty){
+      int bill = int.parse(enterYourBill.text.toString());
+      tipcal = (bill *tip)/100;
+      tipcal == 0 ? total = bill : total = bill+tipcal;
+      totalBperson = total;
+    }
   }
 }
