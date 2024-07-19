@@ -151,12 +151,6 @@ class _TipHomePageState extends State<TipHomePage> {
                                     borderSide: BorderSide(color: Colors.white,width: 4)
                                 )
                             ),
-                            onTap: (){
-                              option = 1;
-                              setState(() {
-
-                              });
-                            },
                           ),
                         ),
                       ],
@@ -324,6 +318,7 @@ class _TipHomePageState extends State<TipHomePage> {
                               child: ElevatedButton(onPressed: (){
                                 if(count > 1) {
                                   count--;
+                                  calculation();
                                   totalBperson = total ~/ count;
                                 }
                                 setState(() {
@@ -351,6 +346,7 @@ class _TipHomePageState extends State<TipHomePage> {
                               width: 60,
                               child: ElevatedButton(onPressed: (){
                                 count++;
+                                calculation();
                                 totalBperson = total~/count;
                                 setState(() {
 
